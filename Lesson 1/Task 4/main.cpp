@@ -28,15 +28,16 @@ int main()
 
     if (D < 0)
         cout << "The equation has no solutions" << endl;
-    if (D == 0)
+
+    if (D == 0){
         cout << "The equation has one solution" << endl;
         x=-b/(2*a);
         cout << "x=" << x;
-
-    if (D > 0)
+    }
+    if (D > 0){
         cout << "The equation has two solutions" << endl;
         x1=(-b+sqrt(D))/(2*a);
         x2=(-b-sqrt(D))/(2*a);
         cout << "x1=" << x1 << ", " << "x2=" << x2 << endl;
-
+    }
 }
