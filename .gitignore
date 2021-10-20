@@ -1,5 +1,10 @@
 # Prerequisites
 *.d
+*bin\*
+*obj\*
+*.o
+*.depent
+*.layout
 
 # Compiled Object files
 *.slo
