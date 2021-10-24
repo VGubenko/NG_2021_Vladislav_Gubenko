@@ -12,12 +12,10 @@ int main()
  cin >> a;
  c = a%10;
  while ( a != 0 )
-    {
-    if ( a%10 == a/10%10 )
+ {
+    if ( a%10 == a/10%10 || a == c )
         b += a%10;
-    if ( a < 10 && a == c)
-        b += a;
     a /= 10;
-    }
-  cout << "hash code of your number " << b;
+ }
+ cout << "hash code of your number " << b;
 }
