@@ -25,14 +25,14 @@ int main()
         money[takeUser] += moneyToget;
         break;
         case 2:
-            if (moneyToget <= money[takeUser]){
-                money[takeUser] -= moneyToget;
-                break;
+        if (moneyToget <= money[takeUser]){
+        money[takeUser] -= moneyToget;
+        break;
         }
-        else {
-            cout << "There is not enough money in the account" << endl;
+            if (moneyToget > money[takeUser]){
+                cout << "There is not enough money in the account" << endl;
+                }
             }
         }
-     }
-  }
+    }
 }
