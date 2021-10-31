@@ -1,110 +1,38 @@
 #include <iostream>
-#define basesize 10
 
 using namespace std;
 
-int main ()
+int main()
 {
-    int basepin [basesize];
-    int basemoney [basesize];
-    for (int i = 0; i < basesize; i++) {
-        basepin[0] = 0;
-        basemoney[0] = 0;
-        basepin[1] = 1;
-        basemoney[1] = 100;
-        basepin[2] = 2;
-        basemoney[2] = 200;
-        basepin[3] = 3;
-        basemoney[3] = 300;
-        basepin[4] = 4;
-        basemoney[4] = 400;
-        basepin[5] = 5;
-        basemoney[5] = 500;
-        basepin[6] = 6;
-        basemoney[6] = 600;
-        basepin[7] = 7;
-        basemoney[7] = 700;
-        basepin[8] = 8;
-        basemoney[8] = 800;
-        basepin[9] = 9;
-        basemoney[9] = 900;
-    }
-    int nowlogin, nowpin;
-    int key, amount;
-
-    while (true) {
-        cout <<  "Welcome to Wet Dreams Bank" << endl;
-        cout << "Bank login: ";
-        cin >> nowlogin;
-        if (nowlogin >= 0 && nowlogin < basesize) {
-            while (true){
-            cout << "PIN-code for your bank account :";
-            cin >> nowpin;
-            if (nowpin == basepin[nowlogin]){
-            cout << " " << endl;
-            cout << "You have successfully logged in" << endl;
-            cout << "Money :" << basemoney[nowlogin] << " $" << endl;
-            cout << "Enter the service number to use it" << endl;
-            cout << "***********************" << endl;
-            cout << "* 1 - put money       *" << endl;
-            cout << "* 2 - withdraw money  *" << endl;
-            cout << "* 3 - change PIN code *" << endl;
-            cout << "* 4 - Exit            *" << endl;
-            cout << "***********************" << endl;
-            cin >> key;
-            if (key == 1){
-                while (true){
-                    cout << "Enter the amount of input :" << endl;
-                cin >> amount;
-                if (amount >= 0) {
-                    basemoney[nowlogin] += amount;
-                    break;
-                }
-                else {
-                    cout << "Not a possible amount to enter" << endl;
-                }
-              }
-            }
-            else if (key == 2){
-                while (true) {
-                    cout << "How much do you want to rent :";
-                    cin >> amount;
-                    if (amount >= 0){
-                        if (amount < basemoney[nowlogin]){
-                            basemoney[nowlogin] -= amount;
-                            break;
-                        }
-                        else {
-                            cout << "Not a possible amount to enter" << endl;
-                        }
-                    }
-                }
-            }
-            else if (key == 3){
-                cout << "Enter the current PIN-code :";
-                cin >> nowpin;
-                if (nowpin == basepin[nowlogin]){
-                    cout << "Enter new PIN-code :";
-                    cin >> basepin[nowlogin];
-                }
-                else {
-                    cout << "PIN-code is incorrect" << endl;
-                }
-            }
-            else if (key == 4){
+ int pincodes[10] = {1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999, 1000}, money[10] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
+ int takeUser = 0, action = 0, moneyToget = 0, enterPincode = 0;
+ while (true){
+    cout << "Welcome to Bank Wet Dreams" << endl;
+    cout << "Enter Login" << endl;
+    cin >> takeUser;
+    cout << "Enter PIN-codes" << endl;
+    cin >> enterPincode;
+    if (pincodes[takeUser] == enterPincode){
+        cout << "Your balance: " << money[takeUser] << endl;
+        cout << "Choose action " << endl;
+        cout << "1 add money" << endl;
+        cout << "2 widthraw money" << endl;
+        cin >> action;
+        cout << "Enter money" << endl;
+        cin >> moneyToget;
+        switch(action){
+        case 1:
+        money[takeUser] += moneyToget;
+        break;
+        case 2:
+            if (moneyToget <= money[takeUser]){
+                money[takeUser] -= moneyToget;
                 break;
-            }
-            else {
-                cout << "unknown button" << endl;
-            }
         }
         else {
-            cout << "PIN-code is incorrect" << endl;
+            cout << "There is not enough money in the account" << endl;
             }
         }
-    }
-    else {
-        cout << "Invalid account login" << endl;
-        }
-    }
+     }
+  }
 }
